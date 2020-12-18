@@ -1,29 +1,22 @@
 package ir.map.android_java_addgeojsonfile;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
-import com.mapbox.geojson.Feature;
 import com.mapbox.geojson.FeatureCollection;
-import com.mapbox.geojson.Point;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 import com.mapbox.mapboxsdk.maps.Style;
+import com.mapbox.mapboxsdk.style.layers.Property;
 import com.mapbox.mapboxsdk.style.layers.PropertyFactory;
 import com.mapbox.mapboxsdk.style.layers.SymbolLayer;
 import com.mapbox.mapboxsdk.style.sources.GeoJsonSource;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
 
 import ir.map.sdk_map.MapirStyle;
 import ir.map.sdk_map.maps.MapView;
@@ -73,6 +66,10 @@ public class MainActivity extends AppCompatActivity {
                 PropertyFactory.iconImage("sample_image_id"),
                 PropertyFactory.iconSize(1.5f),
                 PropertyFactory.iconOpacity(.8f),
+                PropertyFactory.iconAnchor(Property.ICON_ANCHOR_BOTTOM),
+                PropertyFactory.textField("{name}"),
+                PropertyFactory.textAnchor(Property.TEXT_ANCHOR_TOP),
+                PropertyFactory.textFont(new String[]{"IranSans-Noto"}),
                 PropertyFactory.textColor("#ff5252")
         );
         mapStyle.addLayer(symbolLayer);
